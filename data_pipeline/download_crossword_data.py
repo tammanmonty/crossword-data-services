@@ -19,8 +19,8 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 CLEAN_DIR.mkdir(parents=True, exist_ok=True)
 PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
-RAW_FILE = RAW_DIR / 'cryptics_raw.csv'
-CLEAN_FILE = CLEAN_DIR / 'cryptics_clean.csv'
+RAW_FILE = RAW_DIR / 'cryptics_raw.json'
+CLEAN_FILE = CLEAN_DIR / 'cryptics_clean.json'
 DB_FILE = PROCESSED_DIR / 'cryptics.db'
 
 
@@ -65,25 +65,25 @@ def cleaning_cryptic_data():
     print('Reading raw dataset...')
 
     with open(RAW_FILE, "r", encoding="utf-8") as f:
-        data = json.load(f)
+        df = pd.read_json(f)
 
-    df = pd.DataFrame(data)
-    df_subset = df[['rowid', 'clue', 'answer', 'definition']]
+    # df = pd.DataFrame(data)
+    df_clean = df[['rowid', 'clue', 'answer', 'definition']]
 
     print('Cleaning dataset...')
     # Filter Invalid Answers and Definitions
-    df_subset = df_subset[df_subset["answer"].notnull() & (df_subset["answer"].str.len() >= 2)]
-    df_subset = df_subset[df_subset["definition"].apply(is_valid_definition)]
+    df_clean = df_clean[df_clean["answer"].notnull() & (df_clean["answer"].str.len() >= 2)]
+    df_clean = df_clean[df_clean["definition"].apply(is_valid_definition)]
 
     # Cleaning Values
-    df_subset["answer"] = df_subset["answer"].apply(normalize_answer)
-    df_subset["clue"] = df_subset["clue"].apply(normalize_clue)
-    df_subset["definition"] = df_subset["definition"].apply(normalize_definition)
+    df_clean["answer"] = df_clean["answer"].apply(normalize_answer)
+    df_clean["clue"] = df_clean["clue"].apply(normalize_clue)
+    df_clean["definition"] = df_clean["definition"].apply(normalize_definition)
 
     # Remove duplicaties
-    df_subset = df_subset.drop_duplicates()
+    df_clean = df_clean.drop_duplicates()
 
-    df_subset.to_json(CLEAN_FILE, orient='records', lines=True)
+    df_clean.to_json(CLEAN_FILE, orient='records', indent=1)
 
     print(f"Saved clean dataset to: {CLEAN_FILE}")
 
