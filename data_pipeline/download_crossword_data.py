@@ -1,11 +1,6 @@
-import os
 import re
-from zlib import DEF_BUF_SIZE
-
 import requests
 import pandas as pd
-import json
-import sqlite3
 from pathlib import Path
 
 

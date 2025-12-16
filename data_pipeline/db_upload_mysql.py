@@ -1,6 +1,4 @@
 import json
-import sys
-
 import mysql.connector
 from pathlib import Path
 
