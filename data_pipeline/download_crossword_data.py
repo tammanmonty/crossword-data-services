@@ -4,7 +4,7 @@ import pandas as pd
 from pathlib import Path
 
 
-DATA_URL = f'https://cryptics.georgeho.org/data/clues.json?_next&_shape=array'
+DATA_URL = f'https://cryptics.georgeho.org/data/clues.json?_next100&_shape=array'
 RAW_DIR = Path('raw')
 CLEAN_DIR = Path('clean')
 PROCESSED_DIR = Path('processed')
@@ -83,6 +83,6 @@ def cleaning_cryptic_data():
     print(f"Saved clean dataset to: {CLEAN_FILE}")
 
 
-if __name__ == '__main__':
-    download_cryptics_dataset()
-    cleaning_cryptic_data()
+# if __name__ == '__main__':
+#     download_cryptics_dataset()
+#     cleaning_cryptic_data()

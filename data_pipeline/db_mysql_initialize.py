@@ -24,6 +24,7 @@ def initialize_db():
     conn = get_mysql_connection()
 
     cursor = conn.cursor()
+    print("Initializing DB")
     create_db_query = '''CREATE DATABASE IF NOT EXISTS CROSSWORD_DB;'''
     cursor.execute(create_db_query)
     conn.commit()
@@ -34,6 +35,7 @@ def initialize_db():
 def initilize_tables(conn):
     cursor = conn.cursor()
 
+    print("Initializing tables")
     create_table_query = '''CREATE TABLE IF NOT EXISTS CROSSWORD_CLUES (
     id int AUTO_INCREMENT PRIMARY KEY,
     clue text NOT NULL,
@@ -53,5 +55,5 @@ def initialize_mysql():
     initilize_tables(conn)
 
 
-if __name__ == "__main__":
-    initialize_mysql()
+# if __name__ == "__main__":
+#     initialize_mysql()

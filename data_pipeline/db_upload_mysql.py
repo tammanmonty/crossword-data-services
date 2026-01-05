@@ -46,7 +46,7 @@ def upload_dataset_mysql(dataset):
             mysql_db.close()
 
 
-if __name__ == "__main__":
-    with open(CLEAN_FILE) as json_file:
-        values = json.load(json_file)
-    upload_dataset_mysql(values)
+# if __name__ == "__main__":
+#     with open(CLEAN_FILE) as json_file:
+#         values = json.load(json_file)
+#     upload_dataset_mysql(values)
