@@ -1,0 +1,28 @@
+from pathlib import Path
+from typing import Optional
+import os
+
+
+# BASE_DIRECTORIES
+RAW_DIR = Path('raw')  # Stores original downloaded data
+CLEAN_DIR = Path('clean')  # Stores cleaned and validated data
+PROCESSED_DIR = Path('processed')  # Stores final processed data (e.g., database files)
+
+# URL CONFIGURATION
+DATA_URL = f'https://cryptics.georgeho.org/data/clues.json?_next200&_shape=array'
+
+# FILE PATHS
+RAW_FILE = RAW_DIR / 'cryptics_raw.json'
+CLEAN_FILE = CLEAN_DIR / 'cryptics_clean.json' # Sets the file name for the clean json data
+DB_FILE = PROCESSED_DIR / 'cryptics.db'
+
+# DATABASE CONFIGURATIONS
+DB_CONFIG = {
+    'secret_name': 'crossword-app-mysql-creds',
+    'region_name': 'us-east-1'
+}
+
+
+# DATA CLEANING CONFIG
+DB_NAME = ('CROSSWORD_DB')
+TABLE_NAME = ('CROSSWORD_TABLE')

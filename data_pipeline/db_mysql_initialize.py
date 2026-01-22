@@ -1,21 +1,62 @@
+from mysql.connector.abstracts import MySQLConnectionAbstract
+from mysql.connector.pooling import PooledMySQLConnection
+from typing import AnyStr
+from config.config import DB_NAME, DB_CONFIG
+from botocore.exceptions import ClientError
+import boto3
+import json
 import mysql.connector
 
-# Database name to be created and used for storing crossword data
-DB_NAME = ('CROSSWORD_DB')
+
+def get_rdsmysql_secret() -> AnyStr:
+    secret_name = DB_CONFIG['secret_name']
+    region_name = DB_CONFIG['region_name']
+
+    # Create a Secrets Manager Client
+    session = boto3.session.Session()
+    client = session.client(
+        service_name='secretsmanager',
+        region_name=region_name
+    )
+
+    try:
+        get_secret_value_response = client.get_secret_value(
+            SecretId=secret_name
+        )
+        secret = json.loads(get_secret_value_response['SecretString'])
+        return secret
+    except ClientError as e:
+        # For a list of exceptions thrown, see
+        # https://docs.aws.amazon.com/secretsmanager/lates/apireference/API_GetSecretValue.html
+        raise e
 
 
-def get_mysql_connection():
+
+def get_mysql_connection() -> MySQLConnectionAbstract:
     """
     Creates a connection to MySQL server without selecting a specific database.
     Used for initial database creation operations.
 
     Returns:
-        MySQL connection object
+        MySQL local connection object
     """
+
+    if DB_CONFIG['secret_name']:
+
+        secret = get_rdsmysql_secret()
+
+        return mysql.connector.connect(
+            host=secret['host'],
+            user=secret['username'],
+            password=secret['password'],
+            port=secret.get('port', 3306),
+            database=secret['dbname']
+        )
+
     return mysql.connector.connect(
-        host="localhost",  # MySQL server running on local machine
-        user="root",  # MySQL root user
-        passwd="local_password",  # Root user password (NOTE: Should use env variables in production)
+        host=DB_CONFIG['host'],  # MySQL server running on local machine
+        user=DB_CONFIG['user'],  # MySQL root user
+        passwd=DB_CONFIG['password'],  # Root user password (NOTE: Should use env variables in production)
     )
 
 
@@ -80,21 +121,11 @@ def initialize_tables(conn):
     # Create table with IF NOT EXISTS to allow safe re-running of script
     create_table_query = '''CREATE TABLE IF NOT EXISTS CROSSWORD_CLUES \
     ( \
-        id \
-        int \
-        AUTO_INCREMENT \
-        PRIMARY \
-        KEY,  -- Unique identifier, auto-generated \
-        clue \
-        text \
-        NOT \
-        NULL, -- Required: the crossword clue text \
-        answer \
-        varchar \
-                            ( \
-        255 \
-                            ) NOT NULL, -- Required: the answer (max 255 chars)
-        definition text NOT NULL -- Required: the definition/hint
+        id INT AUTO_INCREMENT PRIMARY KEY, \
+        clue TEXT NOT NULL, \
+        answer VARCHAR(255) NOT NULL,
+        definition TEXT NOT NULL,
+        UNIQUE KEY unique_clue_answer (answer, clue(255))
         )'''
 
     cursor.execute(create_table_query)
@@ -104,8 +135,8 @@ def initialize_tables(conn):
     cursor.close()
     conn.close()
 
-
-def initialize_mysql():
+# Entry point when script is run directly
+if __name__ == "__main__":
     """
     Complete MySQL database initialization process:
     1. Creates the database
@@ -122,7 +153,3 @@ def initialize_mysql():
 
     # Step 3: Create tables within the database
     initialize_tables(conn)
-
-# Entry point when script is run directly (currently commented out)
-# if __name__ == "__main__":
-#     initialize_mysql()

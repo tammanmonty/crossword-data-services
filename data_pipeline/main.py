@@ -1,6 +1,7 @@
 from download_crossword_data import *
 from db_mysql_initialize import *
 from db_upload_mysql import *
+import json
 
 if __name__ == '__main__':
     """
@@ -22,11 +23,7 @@ if __name__ == '__main__':
     # Clean the data: normalize text, filter invalid entries, remove duplicates
     cleaning_cryptic_data()
 
-    # ========== STAGE 2: LOAD - DATABASE SETUP ==========
-    # Create MySQL database and required tables if they don't exist
-    initialize_mysql()
-
-    # ========== STAGE 3: LOAD - DATA UPLOAD ==========
+    # ========== STAGE 2: LOAD - DATA UPLOAD ==========
     # Read the cleaned JSON data
     with open(CLEAN_FILE) as json_file:
         values = json.load(json_file)

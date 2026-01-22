@@ -2,27 +2,13 @@ import re
 import requests
 import pandas as pd
 from pathlib import Path
+from config.config import DATA_URL, RAW_DIR, CLEAN_DIR, PROCESSED_DIR, RAW_FILE, CLEAN_FILE, DB_FILE
 
-# API endpoint for cryptic crossword clues dataset
-DATA_URL = f'https://cryptics.georgeho.org/data/clues.json?_next100&_shape=array'
-
-# Define directory structure for data pipeline stages
-RAW_DIR = Path('raw')  # Stores original downloaded data
-CLEAN_DIR = Path('clean')  # Stores cleaned and validated data
-PROCESSED_DIR = Path('processed')  # Stores final processed data (e.g., database files)
-
-# Create all required directories if they don't exist
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 CLEAN_DIR.mkdir(parents=True, exist_ok=True)
 PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
-# Define file paths for each pipeline stage
-RAW_FILE = RAW_DIR / 'cryptics_raw.json'
-CLEAN_FILE = CLEAN_DIR / 'cryptics_clean.json'
-DB_FILE = PROCESSED_DIR / 'cryptics.db'
-
 ''' 1. Download the Dataset '''
-
 
 def download_cryptics_dataset():
     """
