@@ -86,20 +86,23 @@ def initialize_db():
     Creates the CROSSWORD_DB database if it doesn't already exist.
     This is the first step in setting up the database infrastructure.
     """
-    conn = get_mysql_connection()
-    cursor = conn.cursor()
+    try:
+        conn = get_mysql_connection()
+        cursor = conn.cursor()
 
-    print("Initializing DB")
+        print("Initializing DB")
 
-    # Create database only if it doesn't exist (IF NOT EXISTS prevents errors on reruns)
-    create_db_query = '''CREATE \
-    DATABASE IF NOT EXISTS CROSSWORD_DB;'''
-    cursor.execute(create_db_query)
-    conn.commit()
-
-    # Clean up database resources
-    cursor.close()
-    conn.close()
+        # Create database only if it doesn't exist (IF NOT EXISTS prevents errors on reruns)
+        create_db_query = '''CREATE \
+        DATABASE IF NOT EXISTS CROSSWORD_DB;'''
+        cursor.execute(create_db_query)
+        conn.commit()
+    except mysql.connector.Error as err:
+        print(f"Error Initializing DB: {err}")
+    finally:
+        # Clean up database resources
+        cursor.close()
+        conn.close()
 
 
 def initialize_tables(conn):

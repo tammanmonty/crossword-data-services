@@ -19,6 +19,8 @@ def upload_dataset_mysql(dataset):
     3. Commits all changes as a single transaction
     4. Handles errors and ensures proper cleanup
     """
+    if not dataset:
+        raise ValueError("Dataset must not be empty")
     try:
         # Establish connection to MySQL database
         mysql_db = get_mysql_connection()
