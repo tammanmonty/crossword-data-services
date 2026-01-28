@@ -1,59 +1,158 @@
+from mysql.connector.abstracts import MySQLConnectionAbstract
+from mysql.connector.pooling import PooledMySQLConnection
+from typing import AnyStr
+from config.config import DB_NAME, DB_CONFIG
+from botocore.exceptions import ClientError
+import boto3
+import json
 import mysql.connector
 
-DB_NAME = ('CROSSWORD_DB')
 
-def get_mysql_connection():
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        passwd="local_password",
+def get_rdsmysql_secret() -> AnyStr:
+    secret_name = DB_CONFIG['secret_name']
+    region_name = DB_CONFIG['region_name']
+
+    # Create a Secrets Manager Client
+    session = boto3.session.Session()
+    client = session.client(
+        service_name='secretsmanager',
+        region_name=region_name
     )
 
+    try:
+        get_secret_value_response = client.get_secret_value(
+            SecretId=secret_name
+        )
+        secret = json.loads(get_secret_value_response['SecretString'])
+        return secret
+    except ClientError as e:
+        # For a list of exceptions thrown, see
+        # https://docs.aws.amazon.com/secretsmanager/lates/apireference/API_GetSecretValue.html
+        raise e
+
+
+
+def get_mysql_connection() -> MySQLConnectionAbstract:
+    """
+    Creates a connection to MySQL server without selecting a specific database.
+    Used for initial database creation operations.
+
+    Returns:
+        MySQL local connection object
+    """
+
+    if DB_CONFIG['secret_name']:
+
+        secret = get_rdsmysql_secret()
+
+        return mysql.connector.connect(
+            host=secret['host'],
+            user=secret['username'],
+            password=secret['password'],
+            port=secret.get('port', 3306),
+            database=secret['dbname']
+        )
+
+    return mysql.connector.connect(
+        host=DB_CONFIG['host'],  # MySQL server running on local machine
+        user=DB_CONFIG['user'],  # MySQL root user
+        passwd=DB_CONFIG['password'],  # Root user password (NOTE: Should use env variables in production)
+    )
+
+
 def get_db_connection():
+    """
+    Creates a connection to MySQL server and selects the CROSSWORD_DB database.
+    Used for operations that need to work within the specific database.
+
+    Returns:
+        MySQL connection object with CROSSWORD_DB selected
+    """
     conn = get_mysql_connection()
     cursor = conn.cursor()
 
+    # Switch to use the CROSSWORD_DB database
     cursor.execute(f"USE {DB_NAME}")
 
+    # Commit the USE command (though not strictly necessary)
     conn.commit()
     cursor.close()
 
     return conn
 
+
 def initialize_db():
-    conn = get_mysql_connection()
+    """
+    Creates the CROSSWORD_DB database if it doesn't already exist.
+    This is the first step in setting up the database infrastructure.
+    """
+    try:
+        conn = get_mysql_connection()
+        cursor = conn.cursor()
 
-    cursor = conn.cursor()
-    print("Initializing DB")
-    create_db_query = '''CREATE DATABASE IF NOT EXISTS CROSSWORD_DB;'''
-    cursor.execute(create_db_query)
-    conn.commit()
+        print("Initializing DB")
 
-    cursor.close()
-    conn.close()
+        # Create database only if it doesn't exist (IF NOT EXISTS prevents errors on reruns)
+        create_db_query = '''CREATE \
+        DATABASE IF NOT EXISTS CROSSWORD_DB;'''
+        cursor.execute(create_db_query)
+        conn.commit()
+    except mysql.connector.Error as err:
+        print(f"Error Initializing DB: {err}")
+    finally:
+        # Clean up database resources
+        cursor.close()
+        conn.close()
 
-def initilize_tables(conn):
+
+def initialize_tables(conn):
+    """
+    Creates the CROSSWORD_CLUES table within the database.
+    Table schema:
+    - id: Auto-incrementing primary key for unique identification
+    - clue: Full text of the crossword clue (TEXT allows long content)
+    - answer: The solution word/phrase (VARCHAR limited to 255 chars)
+    - definition: The hint or definition part of the clue (TEXT)
+
+    Args:
+        conn: Active MySQL connection to the CROSSWORD_DB database
+    """
     cursor = conn.cursor()
 
     print("Initializing tables")
-    create_table_query = '''CREATE TABLE IF NOT EXISTS CROSSWORD_CLUES (
-    id int AUTO_INCREMENT PRIMARY KEY,
-    clue text NOT NULL,
-    answer varchar(255) NOT NULL,
-    definition text NOT NULL
-    )'''
+
+    # Create table with IF NOT EXISTS to allow safe re-running of script
+    create_table_query = '''CREATE TABLE IF NOT EXISTS CROSSWORD_CLUES \
+    ( \
+        id INT AUTO_INCREMENT PRIMARY KEY, \
+        clue TEXT NOT NULL, \
+        answer VARCHAR(255) NOT NULL,
+        definition TEXT NOT NULL,
+        UNIQUE KEY unique_clue_answer (answer, clue(255))
+        )'''
 
     cursor.execute(create_table_query)
     conn.commit()
 
+    # Clean up database resources
     cursor.close()
     conn.close()
 
-def initialize_mysql():
+# Entry point when script is run directly
+if __name__ == "__main__":
+    """
+    Complete MySQL database initialization process:
+    1. Creates the database
+    2. Connects to it
+    3. Creates required tables
+
+    This is the main entry point for database setup.
+    """
+    # Step 1: Create the database
     initialize_db()
+
+    # Step 2: Get connection to the newly created database
     conn = get_db_connection()
-    initilize_tables(conn)
 
-
-# if __name__ == "__main__":
-#     initialize_mysql()
+    # Step 3: Create tables within the database
+    initialize_tables(conn)

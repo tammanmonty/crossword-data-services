@@ -1,52 +1,66 @@
 import json
 import mysql.connector
-from pathlib import Path
+from config.config import CLEAN_DIR, CLEAN_FILE, DB_CONFIG
+from db_mysql_initialize import get_mysql_connection
 
-
-CLEAN_DIR = Path('clean')
+# Create the Parent Clean Directory if it doesn't already exist
 CLEAN_DIR.mkdir(parents=True, exist_ok=True)
-CLEAN_FILE = CLEAN_DIR / 'cryptics_clean.json'
-
-
-def get_mysql_connection():
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        passwd="local_password",
-        database="CROSSWORD_DB",
-    )
-
-def insert_crossword_clue(cursor, clue_data):
-    sql_query = '''INSERT INTO CROSSWORD_CLUES (clue, answer, definition) VALUES (%s, %s, %s);'''
-    values = (
-        clue_data['clue'],
-        clue_data['answer'],
-        clue_data['definition']
-    )
-    cursor.execute(sql_query, values)
 
 def upload_dataset_mysql(dataset):
+    """
+    Uploads an entire dataset of crossword clues to the MySQL database.
+
+    Args:
+        dataset: List of dictionaries, each containing clue data
+
+    Process:
+    1. Establishes database connection
+    2. Iterates through dataset and inserts each record
+    3. Commits all changes as a single transaction
+    4. Handles errors and ensures proper cleanup
+    """
+    if not dataset:
+        raise ValueError("Dataset must not be empty")
     try:
+        # Establish connection to MySQL database
         mysql_db = get_mysql_connection()
         cursor = mysql_db.cursor()
 
-        for item in dataset:
-            insert_crossword_clue(cursor, item)
+        # Parameterized SQL query - %s placeholders are safely replaced by mysql.connector
+        sql_query = '''INSERT \
+        IGNORE INTO CROSSWORD_CLUES (clue, answer, definition) \
+                       VALUES ( %s, %s, %s );'''
 
+        # Prepare batch values
+        values = [
+            (item['clue'], item['answer'], item['definition'])
+            for item in dataset
+        ]
+
+        cursor.executemany(sql_query, values)
+
+        inserted_count = cursor.rowcount
+        skipped_count = len(dataset) - inserted_count
+        # Commit all inserts as a single transaction for better performance and data integrity
         mysql_db.commit()
-        print(f"Inserted {len(dataset)} rows into MYSQL database successfully")
+        print(f"Inserted {inserted_count} rows into MYSQL database successfully")
+        if skipped_count > 0:
+            print(f"Skipped {skipped_count} duplicate rows")
 
     except mysql.connector.Error as err:
+        # Handle any MySQL-specific errors (connection issues, constraint violations, etc.)
         print("Error: %s" % err)
 
-
     finally:
+        # Always clean up database resources, even if errors occurred
         if mysql_db.is_connected():
             cursor.close()
             mysql_db.close()
 
-
+# Entry point when script is run directly (currently commented out)
 # if __name__ == "__main__":
+#     # Load cleaned data from JSON file
 #     with open(CLEAN_FILE) as json_file:
 #         values = json.load(json_file)
+#     # Upload to database
 #     upload_dataset_mysql(values)

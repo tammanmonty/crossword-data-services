@@ -1,0 +1,6 @@
+mysql-connector-python
+pandas
+requests
+boto3
+botocore
+dotenv
