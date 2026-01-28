@@ -3,4 +3,4 @@ pandas
 requests
 boto3
 botocore
-python-dotenv
+dotenv
