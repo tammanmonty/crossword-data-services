@@ -2,7 +2,7 @@
 FROM python:3.10-slim
 
 # Metadata: specifies the author of this Docker image
-LABEL authors="TammanM"
+LABEL authors="Tamman Montanaro"
 
 # Prevent Python from writing .pyc files to disk (reduces image size)
 ENV PYTHONDONTWRITEBYTECODE=1
