@@ -51,9 +51,7 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 CLEAN_DIR.mkdir(parents=True, exist_ok=True)
 PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
-
-# URL CONFIGURATION
-DATA_URL = f'https://cryptics.georgeho.org/data/clues.json?_next=300&_shape=array'
+DATA_URL = os.getenv("DATA_URL", "f'https://cryptics.georgeho.org/data/clues.json?_next=100&_shape=array'")
 
 # FILE PATHS
 RAW_FILE = RAW_DIR / 'cryptics_raw.json'

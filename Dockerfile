@@ -27,4 +27,4 @@ COPY /data_pipeline /data_pipeline
 
 # Define the command to run when container starts
 # Runs the main.py module from the app package
-CMD ["python", "-m", "app.main"]
+CMD ["python", "-m", "data_pipeline.main"]
