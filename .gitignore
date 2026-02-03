@@ -219,7 +219,6 @@ __marimo__/
 
 
 # Crossword Data Pipeline Logging
-*log*
 /log/app.log
 log/*
 *app.log*
