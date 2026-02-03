@@ -48,11 +48,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DIR = BASE_DIR / 'raw' # Stores original downloaded data
 CLEAN_DIR = BASE_DIR / 'clean' # Stores cleaned and validated data
 PROCESSED_DIR = BASE_DIR / 'processed' # Stores final processed data (e.g., database files)
+LOG_DIR = BASE_DIR / '..' / 'logs'
 
 # Ensure directories exist
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 CLEAN_DIR.mkdir(parents=True, exist_ok=True)
 PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 DATA_URL = os.getenv("DATA_URL", f"https://cryptics.georgeho.org/data/clues.json?_next=100&_shape=array")
 
@@ -60,6 +62,7 @@ DATA_URL = os.getenv("DATA_URL", f"https://cryptics.georgeho.org/data/clues.json
 RAW_FILE = RAW_DIR / 'cryptics_raw.json'
 CLEAN_FILE = CLEAN_DIR / 'cryptics_clean.json' # Sets the file name for the clean json data
 DB_FILE = PROCESSED_DIR / 'cryptics.db'
+LOG_FILE = LOG_DIR / 'crossword_data_pipeline.log'
 
 # ============================================================================
 # DATABASE CONFIGURATION
