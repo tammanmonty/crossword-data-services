@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Optional
 from dotenv import load_dotenv
 from enum import Enum
-
+import logging
 import os
 
 class Environment(Enum):
@@ -15,6 +15,8 @@ class Environment(Enum):
 # ENVIRONMENT DETECTION
 # ============================================================================
 
+logger = logging.getLogger(__name__)
+
 def get_env() -> Environment:
     """
     Get the current environment from ENV variables.
@@ -23,7 +25,8 @@ def get_env() -> Environment:
         Environment enum value
 
     """
-    env_str = os.getenv('ENV', 'DEVELOPMENT').upper()
+    logger.debug("Retrieving environment from ENV variables")
+    env_str = os.getenv('ENV', 'LOCAL').upper()
 
     try:
         return Environment[env_str]
@@ -51,7 +54,7 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 CLEAN_DIR.mkdir(parents=True, exist_ok=True)
 PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
-DATA_URL = os.getenv("DATA_URL", "f'https://cryptics.georgeho.org/data/clues.json?_next=100&_shape=array'")
+DATA_URL = os.getenv("DATA_URL", f"https://cryptics.georgeho.org/data/clues.json?_next=100&_shape=array")
 
 # FILE PATHS
 RAW_FILE = RAW_DIR / 'cryptics_raw.json'
@@ -62,12 +65,12 @@ DB_FILE = PROCESSED_DIR / 'cryptics.db'
 # DATABASE CONFIGURATION
 # ============================================================================
 
-if ENV is Environment.LOCAL:
+if ENV == Environment.LOCAL:
     # Local MySQL
     DB_CONFIG = {
         'host': os.getenv('DB_HOST', 'localhost'),
         'user': os.getenv('DB_USER', 'root'),
-        'password': os.getenv('DB_PASSWORD', ''),
+        'password': os.getenv('DB_PASSWORD', 'local_password'),
         'database': os.getenv('DB_NAME', 'CROSSWORD_DB'),
         'port': int(os.getenv('DB_PORT', '3306')),
         'use_secrets': False

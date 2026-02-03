@@ -1,12 +1,15 @@
 from mysql.connector.abstracts import MySQLConnectionAbstract
 from mysql.connector.pooling import PooledMySQLConnection
 from typing import AnyStr
-from config.config import DB_NAME, DB_CONFIG
+from config.config import DB_NAME, DB_CONFIG, ENV, Environment
 from botocore.exceptions import ClientError
 import boto3
 import json
+import logging
 import mysql.connector
 
+logger = logging.getLogger(__name__)
+logging.getLogger('mysql.connector').setLevel(logging.WARNING)
 
 def get_rdsmysql_secret() -> AnyStr:
     secret_name = DB_CONFIG['secret_name']
@@ -32,33 +35,53 @@ def get_rdsmysql_secret() -> AnyStr:
 
 
 
-def get_mysql_connection() -> MySQLConnectionAbstract:
+def get_mysql_connection():
     """
-    Creates a connection to MySQL server without selecting a specific database.
-    Used for initial database creation operations.
+    Creates a connection to MySQL server depending on the DB_CONFIG variable set in the config. The environment file determines whether or not LOCAL configurations
+    or established DEV / PROD configurations are used. This is crucial for determining the type of Database connection established. LOCAL configurations uses a
+    local MySQL database connections. Alternatively, the DEV and PROD configurations connect to an AWS MySQL Instance.
 
     Returns:
-        MySQL local connection object
+        MySQL connection object
     """
+    try:
+        logger.debug(f"Connecting to MySQL DB: {DB_CONFIG}")
+        if DB_CONFIG.get('use_secrets', True):
+            logger.info("AWS MySQL Connection Created")
 
-    if DB_CONFIG['secret_name']:
+            secret = get_rdsmysql_secret()
 
-        secret = get_rdsmysql_secret()
-
-        return mysql.connector.connect(
-            host=secret['host'],
-            user=secret['username'],
-            password=secret['password'],
-            port=secret.get('port', 3306),
-            database=secret['dbname']
-        )
-
-    return mysql.connector.connect(
-        host=DB_CONFIG['host'],  # MySQL server running on local machine
-        user=DB_CONFIG['user'],  # MySQL root user
-        passwd=DB_CONFIG['password'],  # Root user password (NOTE: Should use env variables in production)
-    )
-
+            return mysql.connector.connect(
+                host=secret['host'],
+                user=secret['username'],
+                password=secret['password'],
+                port=secret.get('port', 3306),
+                database=secret['dbname']
+            )
+        else:
+            logger.info("Local MySQL Connection Created")
+            return mysql.connector.connect(
+                host=DB_CONFIG['host'],  # MySQL server running on local machine
+                user=DB_CONFIG['user'],  # MySQL root user
+                password=DB_CONFIG['password'], # Root user password (NOTE: Should use env variables in production)
+                port=DB_CONFIG['port'], # Port
+                database=DB_CONFIG['database']  # MySQL Database
+            )
+        logger.info("MySQL connection established successfully")
+        return mysql_connection
+    except ClientError as e:
+        logger.error(F"MySQL Client Error: {e}")
+        raise
+    except mysql.connector.Error as e:
+        logger.error(F"MySQL Database Error: {e}")
+        raise
+    except KeyError as e:
+        logger.error(F"Missing Configuration Key: {e}")
+        logger.error(F"DB_Config Contents: {DB_CONFIG}")
+        raise
+    except Exception as e:
+        logger.error(F"Unexpected MySQL Connection: {e}")
+        raise
 
 def get_db_connection():
     """

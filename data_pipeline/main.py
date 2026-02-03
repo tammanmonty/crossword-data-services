@@ -1,7 +1,6 @@
 import sys
 import logging
 from download_crossword_data import download_cryptics_dataset, cleaning_cryptic_data
-from db_mysql_initialize import initialize_db, get_db_connection, initialize_tables
 from db_upload_mysql import upload_dataset_mysql
 from config.config import CLEAN_FILE, ENV
 import json
@@ -10,7 +9,8 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO,
     handlers=[
-        logging.StreamHandler(sys.stdout)
+        logging.StreamHandler(sys.stdout),
+        logging.FileHandler('log/app.log')
     ]
 )
 
@@ -30,6 +30,7 @@ def main():
     source to database in a structured, repeatable manner.
     """
     try:
+        # configuration = config.config.
         logger.info(f'Starting data processing pipeline for {ENV} environment')
         # ========== STAGE 1: EXTRACT ==========
         # Download raw crossword clues and answers from the online source
@@ -68,7 +69,7 @@ def main():
         logger.error(f'Connection error: {ce}')
         return 1
     except Exception as e:
-        logger.error(f'Unexpected error pipeline: {e}')
+        logger.error(f'Unexpected error in pipeline: {e}')
         return 1
 
 if __name__ == '__main__':

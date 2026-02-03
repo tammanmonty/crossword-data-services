@@ -1,602 +1,518 @@
 [
  {
-  "rowid":301,
-  "clue":"Prisoner given shelter is satisfied (7)",
-  "answer":"CONTENT",
-  "definition":"satisfied"
+  "rowid":101,
+  "clue":"Destroyed a Parisian serving-girl verbally? (6)",
+  "answer":"UNMADE",
+  "definition":"Destroyed"
  },
  {
-  "rowid":302,
-  "clue":"Marxist maybe looking hot and bothered? (3)",
-  "answer":"RED",
-  "definition":"Marxist maybe\/looking hot and bothered?"
+  "rowid":102,
+  "clue":"Roofer left in middle or row (5)",
+  "answer":"TILER",
+  "definition":"Roofer"
  },
  {
-  "rowid":303,
-  "clue":"For Europeans it's a terrible strain to accommodate us (9)",
-  "answer":"AUSTRIANS",
-  "definition":"Europeans"
+  "rowid":103,
+  "clue":"Amphibian originally eaten for tea (3)",
+  "answer":"EFT",
+  "definition":"Amphibian"
  },
  {
-  "rowid":304,
-  "clue":"Stipulations for academic periods (5)",
-  "answer":"TERMS",
-  "definition":"Stipulations\/academic periods"
+  "rowid":104,
+  "clue":"Unexpectedly grumpy about quiet revolution (12)",
+  "answer":"SURPRISINGLY",
+  "definition":"Unexpectedly"
  },
  {
-  "rowid":305,
-  "clue":"Some enter a cemetery: a bit of a bloomer (6)",
-  "answer":"RACEME",
-  "definition":"a bit of a bloomer"
+  "rowid":105,
+  "clue":"One making meteoric progress at Bisley, say? (8,4)",
+  "answer":"SHOOTING STAR",
+  "definition":"One making meteoric progress"
  },
  {
-  "rowid":306,
-  "clue":"Harry eats rubbish? I object! (9)",
-  "answer":"PROTESTER",
-  "definition":"I object!"
+  "rowid":106,
+  "clue":"Insular type this writer maligns (8)",
+  "answer":"ISLANDER",
+  "definition":"Insular type"
  },
  {
-  "rowid":307,
-  "clue":"Former President in small house, gone (6)",
-  "answer":"HOOVER",
-  "definition":"Former President"
+  "rowid":107,
+  "clue":"Plea to dine among competitors (8)",
+  "answer":"ENTREATY",
+  "definition":"Plea"
  },
  {
-  "rowid":308,
-  "clue":"Wine? Sing, drinking one \u2014 then get another one! (7)",
-  "answer":"CHIANTI",
-  "definition":"Wine"
+  "rowid":108,
+  "clue":"Storm created by English politician during trial (7)",
+  "answer":"TEMPEST",
+  "definition":"Storm"
  },
  {
-  "rowid":309,
-  "clue":"Greek party with wealth not half evident (5)",
-  "answer":"DORIC",
-  "definition":"Greek"
+  "rowid":109,
+  "clue":"Shrub found in Michigan, Missouri and South America? (6)",
+  "answer":"MIMOSA",
+  "definition":"Shrub"
  },
  {
-  "rowid":310,
-  "clue":"The Spanish drink in Scottish city (5)",
-  "answer":"ELGIN",
-  "definition":"Scottish city"
+  "rowid":110,
+  "clue":"Model put up by a fabulous writer (5)",
+  "answer":"AESOP",
+  "definition":"fabulous writer"
  },
  {
-  "rowid":311,
-  "clue":"Bird once in trench, having lost tail (3)",
-  "answer":"MOA",
-  "definition":"Bird once"
+  "rowid":111,
+  "clue":"Part of circle a churchgoer joined (3)",
+  "answer":"ARC",
+  "definition":"Part of circle"
  },
  {
-  "rowid":312,
-  "clue":"Officer\u2019s plan again to retreat (6)",
-  "answer":"WARDER",
-  "definition":"Officer\u2019s"
+  "rowid":112,
+  "clue":"Born high or low, pondered changing sides (4-7)",
+  "answer":"BLUEBLOODED",
+  "definition":"Born high"
  },
  {
-  "rowid":313,
-  "clue":"Tribe has bewildered language expert (8)",
-  "answer":"HEBRAIST",
-  "definition":"anguage expert"
+  "rowid":113,
+  "clue":"Surprisingly content to ignore every new music group (5)",
+  "answer":"OCTET",
+  "definition":"music group"
  },
  {
-  "rowid":314,
-  "clue":"Looked at team getting embarrassed after trick (10)",
-  "answer":"CONSIDERED",
-  "definition":"Looked at"
+  "rowid":114,
+  "clue":"Promotion of publicly funded entertainment starting three months early? (9)",
+  "answer":"MARKETING",
+  "definition":"Promotion"
  },
  {
-  "rowid":315,
-  "clue":"Island for the nobs featured in back issue of periodical (4)",
-  "answer":"GUAM",
-  "definition":"Island"
+  "rowid":115,
+  "clue":"Revolutionary to run broadcasting company (7)",
+  "answer":"TROTSKY",
+  "definition":"Revolutionary"
  },
  {
-  "rowid":316,
-  "clue":"Reduce something bloody, having got back in time (8)",
-  "answer":"DEROGATE",
-  "definition":"Reduce"
+  "rowid":116,
+  "clue":"Hybrid animal has feline claw shortened (7)",
+  "answer":"CATTALO",
+  "definition":"Hybrid animal"
  },
  {
-  "rowid":317,
-  "clue":"Endless chatter around a fellow's clubs (6)",
-  "answer":"LATHIS",
-  "definition":"clubs"
+  "rowid":117,
+  "clue":"Ordering of pieces from mint is a must for me (11)",
+  "answer":"NUMISMATIST",
+  "definition":"me"
  },
  {
-  "rowid":318,
-  "clue":"Sheep runs that may hold water (4)",
-  "answer":"EWER",
-  "definition":"that may hold water"
+  "rowid":118,
+  "clue":"Madcap display with tops off carelessly (6)",
+  "answer":"ANYHOW",
+  "definition":"carelessly"
  },
  {
-  "rowid":319,
-  "clue":"This person is probing your old-fashioned food content (8)",
-  "answer":"THIAMINE",
-  "definition":"food content"
+  "rowid":119,
+  "clue":"Was a loudmouth Liberal before getting into power? (8)",
+  "answer":"HOLLERED",
+  "definition":"Was a loudmouth"
  },
  {
-  "rowid":320,
-  "clue":"Poet\u2019s line, one on compassion (8)",
-  "answer":"LOVELACE",
-  "definition":"Poet"
+  "rowid":120,
+  "clue":"Jesus follower uplifted youth with spirited stuff, just past two o'clock? (4,9)",
+  "answer":"MARY MAGDALENE",
+  "definition":"Jesus follower"
  },
  {
-  "rowid":321,
-  "clue":"Bed or mattress? It may be found in here (4)",
-  "answer":"DORM",
-  "definition":"It may be found in here"
+  "rowid":121,
+  "clue":"Snake swallowing piece representing half or quarter of artists (7)",
+  "answer":"BOHEMIA",
+  "definition":"quarter of artists"
  },
  {
-  "rowid":322,
-  "clue":"Affected by bugs, get cold after first day of month (6)",
-  "answer":"SEPTIC",
-  "definition":"Affected by bugs"
+  "rowid":122,
+  "clue":"Hater of Brussels sprouts to start with mushroom, having obsessed about removing cap (11)",
+  "answer":"EUROSCEPTIC",
+  "definition":"Hater of Brussels"
  },
  {
-  "rowid":323,
-  "clue":"Melting tarmac starts to restrict some vehicles (8)",
-  "answer":"TRAMCARS",
-  "definition":"vehicles"
+  "rowid":123,
+  "clue":"Suave person who won't keep your interest without rifling through it (6-4)",
+  "answer":"SMOOTHBORE",
+  "definition":"without rifling through it"
  },
  {
-  "rowid":324,
-  "clue":"Magical power of weaver in story spoken of (4)",
-  "answer":"MANA",
-  "definition":"Magical power\/weaver in story spoken of"
+  "rowid":124,
+  "clue":"Section of Norman arch is thrown into disorder? (9)",
+  "answer":"ANARCHIST",
+  "definition":"into disorder\/9"
  },
  {
-  "rowid":325,
-  "clue":"Priest and French actor performing? It's uplifting (10)",
-  "answer":"LEVITATION",
-  "definition":"uplifting"
+  "rowid":126,
+  "clue":"A tiny toll from rise of large deer parasite in egg form (6)",
+  "answer":"TINKLE",
+  "definition":"A tiny toll"
  },
  {
-  "rowid":326,
-  "clue":"Base established \u2014 cycle around it? (8)",
-  "answer":"PEDESTAL",
-  "definition":"Base"
+  "rowid":127,
+  "clue":"Publicity favoured pushy salesman's data, on paper (8)",
+  "answer":"PRINTOUT",
+  "definition":"data, on paper"
  },
  {
-  "rowid":327,
-  "clue":"Perversion is admitted by unfortunate male (6)",
-  "answer":"SADISM",
-  "definition":"Perversion"
+  "rowid":128,
+  "clue":"Promise to fix toilet pan (9)",
+  "answer":"POTENTIAL",
+  "definition":"Promise"
  },
  {
-  "rowid":328,
-  "clue":"Pole\u2019s few lines of poetry (5)",
-  "answer":"ANODE",
-  "definition":"Pole"
+  "rowid":129,
+  "clue":"Disagreement on acceptance of a queen's duty (6)",
+  "answer":"TARIFF",
+  "definition":"duty"
  },
  {
-  "rowid":329,
-  "clue":"Sure to be upset following party conversation (9)",
-  "answer":"DISCOURSE",
-  "definition":"conversation"
+  "rowid":130,
+  "clue":"Newlyweds' odd utensil born in couple's being eccentric? (8,5)",
+  "answer":"RUNCIBLE SPOON",
+  "definition":"Newlyweds' odd utensil"
  },
  {
-  "rowid":330,
-  "clue":"Spoke favouring reform \u2014 not Conservative (6)",
-  "answer":"RADIAL",
-  "definition":"Spoke"
+  "rowid":131,
+  "clue":"Charmer, bachelor in art school, that might be handy in a street fight (11)",
+  "answer":"SWITCHBLADE",
+  "definition":"that might be handy in a street fight"
  },
  {
-  "rowid":331,
-  "clue":"Several faiths TV represented in a religious celebration (7,8)",
-  "answer":"HARVEST FESTIVAL",
-  "definition":"Several faiths TV"
+  "rowid":132,
+  "clue":"Opposing discrimination, say, came down on a piece from Opera North (11)",
+  "answer":"EGALITARIAN",
+  "definition":"Opposing discrimination"
  },
  {
-  "rowid":332,
-  "clue":"Short chum sits on meadow, squashing one plant (8)",
-  "answer":"BUDDLEIA",
-  "definition":"plant"
+  "rowid":133,
+  "clue":"Perhaps show outrage about popular sportsperson using strong-arm tactics (4-6)",
+  "answer":"SHOTPUTTER",
+  "definition":"sportsperson using strong-arm tactics"
  },
  {
-  "rowid":333,
-  "clue":"Strong tastes, first to last, creating uncomfortable feeling (5)",
-  "answer":"ANGST",
-  "definition":"uncomfortable feeling"
+  "rowid":134,
+  "clue":"Radiant quality of star directed without serious thought (5-6)",
+  "answer":"LIGHTHEADED",
+  "definition":"without serious thought"
  },
  {
-  "rowid":334,
-  "clue":"Trader giving one artist supply (9)",
-  "answer":"STATIONER",
-  "definition":"Trader"
+  "rowid":135,
+  "clue":"Financial juggling, random, with good earnings primarily for the bottom line? (9)",
+  "answer":"ARBITRAGE",
+  "definition":"Financial juggling"
  },
  {
-  "rowid":335,
-  "clue":"With something large in the environment, lose out completely (9)",
-  "answer":"WHOLESALE",
-  "definition":"completely"
+  "rowid":136,
+  "clue":"A swift kick to the rear as instruction for RUC? (4-4)",
+  "answer":"BACKHEEL",
+  "definition":"A swift kick to the rear"
  },
  {
-  "rowid":336,
-  "clue":"Resolved to restrict cold with health-giving ingredients (9)",
-  "answer":"MEDICATED",
-  "definition":"with health-giving ingredients"
+  "rowid":137,
+  "clue":"Traveller uttered unfocused angry outburst (7)",
+  "answer":"VAGRANT",
+  "definition":"Traveller"
  },
  {
-  "rowid":337,
-  "clue":"Inscribed within church window maybe see knight (8)",
-  "answer":"LANCELOT",
-  "definition":"knigh"
+  "rowid":138,
+  "clue":"Press become tedious, with old content (7)",
+  "answer":"DRAGOON",
+  "definition":"Press"
  },
  {
-  "rowid":338,
-  "clue":"Love appearing in underwear in funny shows (6)",
-  "answer":"PANTOS",
-  "definition":"funny shows"
+  "rowid":139,
+  "clue":"Labour's core began developing plant in Slough? (7)",
+  "answer":"BOGBEAN",
+  "definition":"plant in Slough?"
  },
  {
-  "rowid":339,
-  "clue":"Traffic needs to speed up heading for Edinburgh (5)",
-  "answer":"TRADE",
-  "definition":"Traffic"
+  "rowid":140,
+  "clue":"Squirt American uncle that's been dumped overboard (6)",
+  "answer":"JETSAM",
+  "definition":"that's been dumped overboard"
  },
  {
-  "rowid":340,
-  "clue":"Cheats and criminals caught out (5)",
-  "answer":"ROOKS",
-  "definition":"Cheats"
+  "rowid":141,
+  "clue":"Praise out of place in review of books (5)",
+  "answer":"AUDIT",
+  "definition":"review of books"
  },
  {
-  "rowid":341,
-  "clue":"Key rings unable to be brought up (5)",
-  "answer":"TABOO",
-  "definition":"unable to be brought up"
+  "rowid":142,
+  "clue":"About to go back to a security organisation - one with several branches (6)",
+  "answer":"ACACIA",
+  "definition":"one with several branches"
  },
  {
-  "rowid":342,
-  "clue":"Frantic chase with army ducking shots (6-3)",
-  "answer":"CAMERASHY",
-  "definition":"ducking shots"
+  "rowid":143,
+  "clue":"Old head has a gin, say, after school (6)",
+  "answer":"SATRAP",
+  "definition":"Old head"
  },
  {
-  "rowid":343,
-  "clue":"Not including design leaving a waste product (9)",
-  "answer":"EXCRETION",
-  "definition":"waste product"
+  "rowid":144,
+  "clue":"One can't go off at nights (9)",
+  "answer":"INSOMNIAC",
+  "definition":"One can't go off at nights"
  },
  {
-  "rowid":344,
-  "clue":"Asian dog covering miles (5)",
-  "answer":"TAMIL",
-  "definition":"Asian"
+  "rowid":145,
+  "clue":"Perth perv returned to dance (4)",
+  "answer":"REEL",
+  "definition":"dance"
  },
  {
-  "rowid":345,
-  "clue":"Getting unseated, mounted fighter's lost face (6)",
-  "answer":"OUSTER",
-  "definition":"Getting unseated"
+  "rowid":146,
+  "clue":"Seat in tree is rare (6)",
+  "answer":"BREECH",
+  "definition":"Seat"
  },
  {
-  "rowid":346,
-  "clue":"Tag game outside involved tariff (8)",
-  "answer":"GRAFFITO",
-  "definition":"Tag"
+  "rowid":147,
+  "clue":"French policeman or criminal armed with information (8)",
+  "answer":"GENDARME",
+  "definition":"French policeman"
  },
  {
-  "rowid":347,
-  "clue":"Loudly entering drunk, sense I might get duped (4,5)",
-  "answer":"SOFT TOUCH",
-  "definition":"I might get duped"
+  "rowid":148,
+  "clue":"Train Earl to get more canny touring Pennsylvania (8)",
+  "answer":"ESPALIER",
+  "definition":"Train"
  },
  {
-  "rowid":348,
-  "clue":"Like this young lady from East African port (5)",
-  "answer":"LAGOS",
-  "definition":"African port"
+  "rowid":149,
+  "clue":"Monkey outside small recess (4)",
+  "answer":"APSE",
+  "definition":"recess"
  },
  {
-  "rowid":349,
-  "clue":"Plaintiff's back behind person who won't be appealing? (5)",
-  "answer":"FRUMP",
-  "definition":"person who won't be appealing"
+  "rowid":150,
+  "clue":"Ruined a sculpture (4)",
+  "answer":"BUST",
+  "definition":"Ruined\/a sculpture"
  },
  {
-  "rowid":350,
-  "clue":"Like to dig into top grub prepared here? (9)",
-  "answer":"GASTROPUB",
-  "definition":"Like to dig into top grub prepared here"
+  "rowid":151,
+  "clue":"During psalm conductor talks foolishly (8)",
+  "answer":"PRATTLES",
+  "definition":"talks foolishly"
  },
  {
-  "rowid":351,
-  "clue":"Go off a person in party giving a twirl (8)",
-  "answer":"ROTATORY",
-  "definition":"giving a twirl"
+  "rowid":152,
+  "clue":"Robert put old tie on American bird (8)",
+  "answer":"BOBOLINK",
+  "definition":"American bird"
  },
  {
-  "rowid":352,
-  "clue":"Periodically, varsity hymn gets a complaint (6)",
-  "answer":"ASTHMA",
-  "definition":"a complaint"
+  "rowid":153,
+  "clue":"Doctor entertains artist with piano and a brandy (6)",
+  "answer":"GRAPPA",
+  "definition":"brandy"
  },
  {
-  "rowid":353,
-  "clue":"Give a lift to European and others around (5)",
-  "answer":"ELATE",
-  "definition":"Give a lift to"
+  "rowid":154,
+  "clue":"Bats finally settling on stove (4)",
+  "answer":"GAGA",
+  "definition":"Bats"
  },
  {
-  "rowid":354,
-  "clue":"Bourbons knocked back by this general: a vulgar, boring soldier (9)",
-  "answer":"GARIBALDI",
-  "definition":"Bourbons knocked back by this general"
+  "rowid":155,
+  "clue":"Short belt - one form of punishment creating a storm! (9)",
+  "answer":"HURRICANE",
+  "definition":"storm\/storm"
  },
  {
-  "rowid":355,
-  "clue":"British are out to block harsh brickbat (9)",
-  "answer":"RASPBERRY",
-  "definition":"brickbat"
+  "rowid":156,
+  "clue":"Great cricketer becomes more like a judge? (6)",
+  "answer":"SOBERS",
+  "definition":"Great cricketer\/becomes more like a judge"
  },
  {
-  "rowid":356,
-  "clue":"Writer quite slowly knocking out leading article (5)",
-  "answer":"DANTE",
-  "definition":"Writer"
+  "rowid":157,
+  "clue":"Flat behind the Spanish cardinal (6)",
+  "answer":"ELEVEN",
+  "definition":"cardinal"
  },
  {
-  "rowid":357,
-  "clue":"We're short of tailored clothing that's tight (3,5,3,4)",
-  "answer":"THE WORSE FOR WEAR",
-  "definition":"tight"
+  "rowid":158,
+  "clue":"Painting Caruso performing with choir (11)",
+  "answer":"CHIAROSCURO",
+  "definition":"Painting"
  },
  {
-  "rowid":358,
-  "clue":"Funds in Madison County (5)",
-  "answer":"BUCKS",
-  "definition":"Funds in Madison\/County"
+  "rowid":159,
+  "clue":"Class left out of big house (5)",
+  "answer":"CASTE",
+  "definition":"Class"
  },
  {
-  "rowid":359,
-  "clue":"Fail to limit fare before passing through duty-free? (7)",
-  "answer":"OVEREAT",
-  "definition":"Fail to limit fare"
+  "rowid":160,
+  "clue":"A jolly cleaner goes round one piece of furniture (8)",
+  "answer":"ARMCHAIR",
+  "definition":"piece of furniture"
  },
  {
-  "rowid":360,
-  "clue":"Cold sauce for prune (4)",
-  "answer":"CLIP",
-  "definition":"prune"
+  "rowid":161,
+  "clue":"Back in a short while (6)",
+  "answer":"SECOND",
+  "definition":"Back \/a short while"
  },
  {
-  "rowid":361,
-  "clue":"Upset stomach in the end for Burger King fan (10)",
-  "answer":"MONARCHIST",
-  "definition":"King fan"
+  "rowid":162,
+  "clue":"Swimming manager fills dry bag (9)",
+  "answer":"TERMAGANT",
+  "definition":"bag"
  },
  {
-  "rowid":362,
-  "clue":"Tee off straight, feeling pity for others once (7)",
-  "answer":"RUTHFUL",
-  "definition":"feeling pity for others once"
+  "rowid":163,
+  "clue":"Grog makes you dim when put under pressure (3)",
+  "answer":"ALE",
+  "definition":"Grog"
  },
  {
-  "rowid":363,
-  "clue":"Calling for cuts on winning r\u00e9sum\u00e9 (7-2)",
-  "answer":"SUMMINGUP",
-  "definition":"r\u00e9sum\u00e9"
+  "rowid":164,
+  "clue":"Farm facility with fallen leader, grabbed by criminal mastermind with yen for dodgy deals (7-6)",
+  "answer":"JIGGERY POKERY",
+  "definition":"dodgy deals"
  },
  {
-  "rowid":364,
-  "clue":"A single chicken sandwich (6,9)",
-  "answer":"YELLOW SUBMARINE",
-  "definition":"A single"
+  "rowid":165,
+  "clue":"To defeat hunk is an outstanding achievement (11)",
+  "answer":"MASTERPIECE",
+  "definition":"an outstanding achievement"
  },
  {
-  "rowid":365,
-  "clue":"Chirpy Australian doctor on a run after shift (10)",
-  "answer":"BUDGERIGAR",
-  "definition":"Chirpy Australian"
+  "rowid":166,
+  "clue":"American left a flashing light outside as a navigator's aid (9)",
+  "answer":"ASTROLABE",
+  "definition":"a navigator's aid"
  },
  {
-  "rowid":366,
-  "clue":"Fliers in tropics giving clue for bananas (5,4)",
-  "answer":"FRUIT BATS",
-  "definition":"Fliers in tropics"
+  "rowid":167,
+  "clue":"Stupid angler almost hit pipe (8)",
+  "answer":"NARGHILE",
+  "definition":"pipe"
  },
  {
-  "rowid":367,
-  "clue":"What might season reportedly be, after fuss? (7)",
-  "answer":"POTHERB",
-  "definition":"What might season"
+  "rowid":168,
+  "clue":"Blackpool is known for such organs (6)",
+  "answer":"LIGHTS",
+  "definition":"Blackpool is known for such\/organs"
  },
  {
-  "rowid":368,
-  "clue":"Did rebel call the wrong way? It'll prove a bloomer (7)",
-  "answer":"ROSEBUD",
-  "definition":"It'll prove a bloomer"
+  "rowid":169,
+  "clue":"Quickly take horse from native American (5)",
+  "answer":"APACE",
+  "definition":"Quickly"
  },
  {
-  "rowid":369,
-  "clue":"Treasure for Paris Commune Le Havre's seized back (5)",
-  "answer":"HELEN",
-  "definition":"Treasure for Paris"
+  "rowid":170,
+  "clue":"Bother sandboy, now and then (3)",
+  "answer":"ADO",
+  "definition":"Bother"
  },
  {
-  "rowid":370,
-  "clue":"Sally hasn\u2019t got over fight (4)",
-  "answer":"FRAY",
-  "definition":"fight"
+  "rowid":184,
+  "clue":"Barrister that\u2019s soft and smooth (4)",
+  "answer":"SILK",
+  "definition":"Barrister"
  },
  {
-  "rowid":371,
-  "clue":"Cycle on the side of a drop and court disaster (4,3,1,4)",
-  "answer":"RIDE FOR A FALL",
-  "definition":"court disaster"
+  "rowid":185,
+  "clue":"Sheriff\u2019s officer to leave money for waiters (8)",
+  "answer":"TIPSTAFF",
+  "definition":"Sheriff\u2019s officer"
  },
  {
-  "rowid":372,
-  "clue":"Very fine short name for a hedgehog? (5)",
-  "answer":"SONIC",
-  "definition":"name for a hedgehog?"
+  "rowid":186,
+  "clue":"Chap gets older but copes (7)",
+  "answer":"MANAGES",
+  "definition":"copes"
  },
  {
-  "rowid":373,
-  "clue":"Fully discuss party no longer in the game (6,3)",
-  "answer":"THRASH OUT",
-  "definition":"Fully discuss"
+  "rowid":187,
+  "clue":"Proposer is Shaker\u2019s companion? (5)",
+  "answer":"MOVER",
+  "definition":"Proposer"
  },
  {
-  "rowid":374,
-  "clue":"Organ stop in list (8)",
-  "answer":"REGISTER",
-  "definition":"Organ stop\/list"
+  "rowid":188,
+  "clue":"Tricky problem, brewing artisan beer (5-6)",
+  "answer":"BRAINTEASER",
+  "definition":"Tricky problem"
  },
  {
-  "rowid":375,
-  "clue":"Appear in an excited state after parade (4,2)",
-  "answer":"SHOW UP",
+  "rowid":189,
+  "clue":"Everyone in short dash for US city (6)",
+  "answer":"DALLAS",
+  "definition":"US city"
+ },
+ {
+  "rowid":190,
+  "clue":"Pictures came in for restoration (6)",
+  "answer":"CINEMA",
+  "definition":"Pictures"
+ },
+ {
+  "rowid":191,
+  "clue":"Appear, as moths tend to? (4,2,5)",
+  "answer":"COME TO LIGHT",
   "definition":"Appear"
  },
  {
-  "rowid":376,
-  "clue":"Poisonous liquid in alcohol taken by him at the end (8)",
-  "answer":"METHANOL",
-  "definition":"Poisonous liquid"
+  "rowid":192,
+  "clue":"Present of francs given to monarch (5)",
+  "answer":"OFFER",
+  "definition":"Present"
  },
  {
-  "rowid":377,
-  "clue":"Watchword of guy painting in retirement (6)",
-  "answer":"MANTRA",
-  "definition":"Watchword"
+  "rowid":193,
+  "clue":"I won\u2019t itemise the rest, even quickly (3,2,2)",
+  "answer":"AND SO ON",
+  "definition":"I won\u2019t itemise the rest"
  },
  {
-  "rowid":378,
-  "clue":"In goal blocking shot (6)",
-  "answer":"TRENDY",
-  "definition":"In"
+  "rowid":194,
+  "clue":"Smear pan to cook cheese (8)",
+  "answer":"PARMESAN",
+  "definition":"cheese"
  },
  {
-  "rowid":379,
-  "clue":"Female changed, then sat on the fence (8)",
-  "answer":"FALTERED",
-  "definition":"sat on the fence"
+  "rowid":195,
+  "clue":"Very dark in Kentucky (4)",
+  "answer":"INKY",
+  "definition":"Very dark"
  },
  {
-  "rowid":380,
-  "clue":"Standards concerning rector (6)",
-  "answer":"PARSON",
-  "definition":"rector"
+  "rowid":196,
+  "clue":"A corpse: important one? (8)",
+  "answer":"SOMEBODY",
+  "definition":"A corpse: important one"
  },
  {
-  "rowid":381,
-  "clue":"Rank reduced, so resign (4,4)",
-  "answer":"STEP DOWN",
-  "definition":"resign"
+  "rowid":197,
+  "clue":"In Berlin, dainty girl (5)",
+  "answer":"LINDA",
+  "definition":"girl"
  },
  {
-  "rowid":382,
-  "clue":"Musical passage in film (5,4)",
-  "answer":"ANNIE HALL",
-  "definition":"film"
+  "rowid":198,
+  "clue":"Going along with others, one\u2019s on foot (2,4)",
+  "answer":"IN STEP",
+  "definition":"Going along with others"
  },
  {
-  "rowid":383,
-  "clue":"Fool about to produce gunpowder ingredient (5)",
-  "answer":"NITRE",
-  "definition":"gunpowder ingredient"
+  "rowid":199,
+  "clue":"Like some workers, needing houses destroyed (4-7)",
+  "answer":"SEMISKILLED",
+  "definition":"Like some workers"
  },
  {
-  "rowid":384,
-  "clue":"Out of harm's way, insane criminals (4-8)",
-  "answer":"SAFE",
-  "definition":"criminals"
- },
- {
-  "rowid":385,
-  "clue":"Stage right, Oscar to play guitar (7)",
-  "answer":"ROSTRUM",
-  "definition":"Stage"
- },
- {
-  "rowid":386,
-  "clue":"Please understand term gent now misused when feeding dog (4,3,2,5)",
-  "answer":"DONT GET ME WRONG",
-  "definition":"Please understand"
- },
- {
-  "rowid":387,
-  "clue":"Concentrate following commander, American (5)",
-  "answer":"FOCUS",
-  "definition":"Concentrate"
- },
- {
-  "rowid":388,
-  "clue":"Betrayed the trust of lecturer after treat misinterpreted (6,2)",
-  "answer":"RATTED ON",
-  "definition":"Betrayed the trust of"
- },
- {
-  "rowid":389,
-  "clue":"Plant in bogland across river (4)",
-  "answer":"FERN",
-  "definition":"Plant"
- },
- {
-  "rowid":390,
-  "clue":"Fail to win compassion, become disillusioned (4,5)",
-  "answer":"LOSE HEART",
-  "definition":"become disillusioned"
- },
- {
-  "rowid":391,
-  "clue":"What may be a comfort to one who's just retired? (3-5,6)",
-  "answer":"HOT",
-  "definition":"What may be a comfort to one who's just retired?"
- },
- {
-  "rowid":392,
-  "clue":"More work! (6)",
-  "answer":"UTOPIA",
-  "definition":"More work!"
- },
- {
-  "rowid":393,
-  "clue":"Group of stars with capital attorney (9)",
-  "answer":"ANDROMEDA",
-  "definition":"Group of stars"
- },
- {
-  "rowid":394,
-  "clue":"Leader of revolt having measure of power over revolutionary count (3,5)",
-  "answer":"WAT TYLER",
-  "definition":"Leader of revolt"
- },
- {
-  "rowid":395,
-  "clue":"Picture which involves work (3,3)",
-  "answer":"TOP HAT",
-  "definition":"Picture"
- },
- {
-  "rowid":396,
-  "clue":"Housekeeper died: ravens flying about (7)",
-  "answer":"DANVERS",
-  "definition":"Housekeeper"
- },
- {
-  "rowid":397,
-  "clue":"Fear of god? (5)",
-  "answer":"PANIC",
-  "definition":"Fear"
- },
- {
-  "rowid":398,
-  "clue":"Club's male champion (4)",
-  "answer":"MACE",
-  "definition":"Club"
- },
- {
-  "rowid":399,
-  "clue":"Key area, watering hole (5,3)",
-  "answer":"SPACE BAR",
-  "definition":"Key"
- },
- {
-  "rowid":400,
-  "clue":"Worn out, quiet cat dropping head (6)",
-  "answer":"SHABBY",
-  "definition":"Worn out"
+  "rowid":200,
+  "clue":"Unfavourable notice on poem (7)",
+  "answer":"ADVERSE",
+  "definition":"Unfavourable"
  }
 ]

@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Crossword Data Pipeline Logging
+*log*
+/log/app.log
+log/*
+*app.log*
