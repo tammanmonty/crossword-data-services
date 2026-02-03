@@ -7,7 +7,7 @@ from pathlib import Path
 
 from requests import RequestException
 
-from config.config import DATA_URL, RAW_DIR, CLEAN_DIR, PROCESSED_DIR, RAW_FILE, CLEAN_FILE, DB_FILE
+from .config.config import DATA_URL, RAW_DIR, CLEAN_DIR, PROCESSED_DIR, RAW_FILE, CLEAN_FILE, DB_FILE
 
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 CLEAN_DIR.mkdir(parents=True, exist_ok=True)

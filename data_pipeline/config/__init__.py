@@ -1,4 +1,4 @@
-from config import *
+from .config import *
 
 # Export commonly used items
 __all__ = [

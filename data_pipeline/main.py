@@ -1,13 +1,14 @@
 import sys
 import logging
-from download_crossword_data import download_cryptics_dataset, cleaning_cryptic_data
-from db_upload_mysql import upload_dataset_mysql
-from config.config import CLEAN_FILE, ENV, LOG_FILE
+
+from .download_crossword_data import download_cryptics_dataset, cleaning_cryptic_data
+from .db_upload_mysql import upload_dataset_mysql
+from .config.config import CLEAN_FILE, ENV, LOG_FILE, LOG_LEVEL
 import json
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO,
+    level=LOG_LEVEL,
     handlers=[
         logging.StreamHandler(sys.stdout),
         logging.FileHandler(LOG_FILE),

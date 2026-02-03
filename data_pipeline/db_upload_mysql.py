@@ -1,7 +1,7 @@
 import json
 import mysql.connector
-from config.config import CLEAN_DIR, CLEAN_FILE, DB_CONFIG
-from db_mysql_initialize import get_mysql_connection
+from .config.config import CLEAN_DIR, CLEAN_FILE, DB_CONFIG
+from .db_mysql_initialize import get_mysql_connection
 import logging
 
 # Create the Parent Clean Directory if it doesn't already exist

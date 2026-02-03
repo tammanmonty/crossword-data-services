@@ -81,8 +81,8 @@ if ENV == Environment.LOCAL:
 else:
     # AWS RDS MySQL
     DB_CONFIG = {
-        'secret_name': 'crossword-app-mysql-creds',
-        'region_name': 'us-east-1',
+        'secret_name': os.getenv('SECRET_NAME'),
+        'region_name': os.getenv('DB_REGION_NAME', 'us-east-1'),
         'use_secrets': True
     }
 

@@ -1,7 +1,7 @@
 from mysql.connector.abstracts import MySQLConnectionAbstract
 from mysql.connector.pooling import PooledMySQLConnection
 from typing import AnyStr
-from config.config import DB_NAME, DB_CONFIG, ENV, Environment
+from .config.config import DB_NAME, DB_CONFIG, ENV, Environment
 from botocore.exceptions import ClientError
 import boto3
 import json
@@ -14,6 +14,7 @@ logging.getLogger('mysql.connector').setLevel(logging.WARNING)
 def get_rdsmysql_secret() -> AnyStr:
     secret_name = DB_CONFIG['secret_name']
     region_name = DB_CONFIG['region_name']
+    logger.debug(f"AWS Config: {secret_name}, {region_name}")
 
     # Create a Secrets Manager Client
     session = boto3.session.Session()
