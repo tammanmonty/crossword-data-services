@@ -2,7 +2,7 @@
 FROM python:3.10-slim
 
 # Metadata: specifies the author of this Docker image
-LABEL authors="TammanM"
+LABEL authors="Tamman Montanaro"
 
 # Prevent Python from writing .pyc files to disk (reduces image size)
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -12,7 +12,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Set the working directory inside the container
-WORKDIR /data_pipeline
+WORKDIR /app
 
 # Copy requirements file first (leverages Docker layer caching)
 # If requirements.txt hasn't changed, this layer will be cached
@@ -23,8 +23,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code to the container
 # This copies from host's /data_pipeline directory to container's /data_pipeline directory
-COPY /data_pipeline /data_pipeline
+COPY /data_pipeline /app/data_pipeline
 
 # Define the command to run when container starts
 # Runs the main.py module from the app package
-CMD ["python", "-m", "app.main"]
+CMD ["python", "-m", "data_pipeline.main"]

@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Optional
 from dotenv import load_dotenv
 from enum import Enum
-
+import logging
 import os
 
 class Environment(Enum):
@@ -15,6 +15,8 @@ class Environment(Enum):
 # ENVIRONMENT DETECTION
 # ============================================================================
 
+logger = logging.getLogger(__name__)
+
 def get_env() -> Environment:
     """
     Get the current environment from ENV variables.
@@ -23,7 +25,8 @@ def get_env() -> Environment:
         Environment enum value
 
     """
-    env_str = os.getenv('ENV', 'DEVELOPMENT').upper()
+    logger.debug("Retrieving environment from ENV variables")
+    env_str = os.getenv('ENV', 'LOCAL').upper()
 
     try:
         return Environment[env_str]
@@ -45,31 +48,32 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DIR = BASE_DIR / 'raw' # Stores original downloaded data
 CLEAN_DIR = BASE_DIR / 'clean' # Stores cleaned and validated data
 PROCESSED_DIR = BASE_DIR / 'processed' # Stores final processed data (e.g., database files)
+LOG_DIR = BASE_DIR / '..' / 'logs'
 
 # Ensure directories exist
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 CLEAN_DIR.mkdir(parents=True, exist_ok=True)
 PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-
-# URL CONFIGURATION
-DATA_URL = f'https://cryptics.georgeho.org/data/clues.json?_next=300&_shape=array'
+DATA_URL = os.getenv("DATA_URL", f"https://cryptics.georgeho.org/data/clues.json?_next=100&_shape=array")
 
 # FILE PATHS
 RAW_FILE = RAW_DIR / 'cryptics_raw.json'
 CLEAN_FILE = CLEAN_DIR / 'cryptics_clean.json' # Sets the file name for the clean json data
 DB_FILE = PROCESSED_DIR / 'cryptics.db'
+LOG_FILE = LOG_DIR / 'crossword_data_pipeline.log'
 
 # ============================================================================
 # DATABASE CONFIGURATION
 # ============================================================================
 
-if ENV is Environment.LOCAL:
+if ENV == Environment.LOCAL:
     # Local MySQL
     DB_CONFIG = {
         'host': os.getenv('DB_HOST', 'localhost'),
         'user': os.getenv('DB_USER', 'root'),
-        'password': os.getenv('DB_PASSWORD', ''),
+        'password': os.getenv('DB_PASSWORD', 'local_password'),
         'database': os.getenv('DB_NAME', 'CROSSWORD_DB'),
         'port': int(os.getenv('DB_PORT', '3306')),
         'use_secrets': False
@@ -77,8 +81,8 @@ if ENV is Environment.LOCAL:
 else:
     # AWS RDS MySQL
     DB_CONFIG = {
-        'secret_name': 'crossword-app-mysql-creds',
-        'region_name': 'us-east-1',
+        'secret_name': os.getenv('SECRET_NAME'),
+        'region_name': os.getenv('DB_REGION_NAME', 'us-east-1'),
         'use_secrets': True
     }
 
