@@ -45,15 +45,27 @@ def upload_dataset_mysql(dataset):
 
         inserted_count = cursor.rowcount
         skipped_count = len(dataset) - inserted_count
-        # Commit all inserts as a single transaction for better performance and data integrity
-        mysql_db.commit()
-        logger.info(f"Inserted {inserted_count} rows into MYSQL database successfully")
+
+        if inserted_count == 0:
+            mysql_db.rollback()
+            # logger.warning(f"Duplicate clues were attempted to be inserted: {skipped_count}")
+        else:
+            # Commit all inserts as a single transaction for better performance and data integrity
+            mysql_db.commit()
+            logger.info(f"Inserted {inserted_count} rows into MYSQL database successfully")
+
         if skipped_count > 0:
             logger.info(f"Skipped {skipped_count} duplicate rows")
 
     except mysql.connector.Error as err:
+        mysql_db.rollback()
         # Handle any MySQL-specific errors (connection issues, constraint violations, etc.)
-        logger.error("Error: %s" % err)
+        logger.error(f"Database connection error: {str(err)}")
+
+    except Exception as err:
+        mysql_db.rollback()
+
+        logger.error(f"Unexpected error: {str(err)}")
 
     finally:
         # Always clean up database resources, even if errors occurred
